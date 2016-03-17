@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset=utf-8 />
+<title>DC Flowering Trees</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' />
+
+<style>
+ 
+ .my-custom-control { 
+    background: url('http://www.kidpowerdc.org/images/partners/kid_power_inc-casey_trees-partner_logo.jpg');
+    background-size: 100px 100px; width: 100px; height: 100px; }
+
+
+  
+
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+
+</head>
+
+<body>
+
+
+<div id='map'></div>
+
+<script>
+
+L.mapbox.accessToken = 'pk.eyJ1IjoiY2FzZXl0cmVlcyIsImEiOiJvYzEtLUdrIn0.YqMTnfDu7pjBIpcztuXrdQ';
+var map = L.mapbox.map('map').setView([38.8922,-77.0348], 12);
+
+
+
+
+var MyControl = L.Control.extend({
+    options: {
+      position: 'bottomleft'
+    },
+
+    onAdd: function (map) {
+      // create the control container with a particular class name
+      // ** you can add the image to the div as a background image using css
+      var container = L.DomUtil.create('div', 'my-custom-control');
+
+      // ... initialize other DOM elements, add listeners, etc.
+      return container;
+    }
+});
+
+map.addControl(new MyControl());
+
+
+
+
+
+
+
+L.mapbox.styleLayer('mapbox://styles/mapbox/dark-v8').addTo(map);
+
+
+
+
+
+
+L.control.layers({}, 
+{
+    'All': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile2f3t50001a9jbm0rh4pcu').addTo(map),
+    'Apples': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile2kzcj0004a9jb8gkl58a7'),
+    'Cherries': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile2o0up00009gm3cxzt1y19'),
+    'Crapemyrtles': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile2qy9n00019pkvb5we1jqu'),
+    'Dogwoods': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile2sx5m0006a9jbek1vjovl'),
+    'Goldenrain Trees': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile2u73700019gm3gv1pumah'),
+    'Japanese Pagodas': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile2vdkw0002a8ktotcz9hs1'),
+    'Lilacs': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile305dh0002hxkm6fm6ojnv'),
+    'Lindens': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile30vkn00029gm3b2vu1sbv'),
+    'Magnolias': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile31wfx0003hxkmwkuvzr02'),
+    'Redbuds': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile34cud00039pkv19d6ta26'),
+    'Serviceberries': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile358cl00039gm3s5a9dtow'),
+    'Yellowwoods': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile362mx00049pkv6oiza549'),
+    
+}).addTo(map);
+
+
+
+</script>
+</body>
+</html>
