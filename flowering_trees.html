@@ -56,19 +56,19 @@ var MyControl = L.Control.extend({
 map.addControl(new MyControl());
 
 
+var credits = L.control.attribution().addTo(map);
+credits.addAttribution("map created by Joshua C. Pullin");
 
 
+L.control.layers(
 
+{
+    'Basemap: Run, Bike, Hike': L.mapbox.tileLayer('mapbox.run-bike-hike').addTo(map),
+    'Basemap: Satellite Streets': L.mapbox.tileLayer('mapbox.streets-satellite'),
+    'Basemap: Dark': L.mapbox.tileLayer('mapbox.dark'),
 
+}, 
 
-L.mapbox.styleLayer('mapbox://styles/mapbox/dark-v8').addTo(map);
-
-
-
-
-
-
-L.control.layers({}, 
 {
     'All': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile2f3t50001a9jbm0rh4pcu').addTo(map),
     'Apples': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile2kzcj0004a9jb8gkl58a7'),
@@ -85,6 +85,7 @@ L.control.layers({},
     'Yellowwoods': L.mapbox.styleLayer('mapbox://styles/caseytrees/cile362mx00049pkv6oiza549'),
     
 }).addTo(map);
+
 
 
 
